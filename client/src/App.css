@@ -30,6 +30,7 @@ button {
 .footer {
   color: #757de8;
   font-size: 0.8rem;
+  float: right;
 }
 .listEntryItem {
   margin: 0 0 5px 0;
