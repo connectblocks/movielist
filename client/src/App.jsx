@@ -49,7 +49,7 @@ class App extends Component {
   }
 
   render() {
-    const numberWithCommas = this.state.totalResult.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ");
+    const numberWithCommas = this.state.totalResult.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return (
       <Paper style={{padding: '2% 15%'}}>
