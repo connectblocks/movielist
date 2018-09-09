@@ -29,7 +29,7 @@ class MovieListEntry extends Component {
   }
 
   render () {
-    const inStyle = this.state.own === 'Yes' ? 'Green' : 'Red';
+    const inStyle = this.state.own === 'Yes' ? 'Green' : 'Grey';
     return (
       <div style={{borderStyle: 'solid', margin: '5px', padding: '5px'}}>
         <h3>{this.props.item.title}</h3>

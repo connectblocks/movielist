@@ -1,0 +1,13 @@
+body {
+  margin: 1%;
+  font-family: 'Roboto';
+}
+
+h2 {
+  color:#002984;
+}
+
+.footer {
+  color: #E65100;
+  font-size: 0.7rem;
+}

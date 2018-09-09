@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import './App.css';
 import axios from 'axios';
 import CONFIG from '../../config.json';
 import MovieList from './components/MovieList'
+import { Paper, Grid, TableFooter, TextField } from '@material-ui/core/';
+
+
 
 class App extends Component {
   constructor() {
@@ -17,19 +21,21 @@ class App extends Component {
 
   handleSearchSubmit(event) {
     event.preventDefault();
-    if(this.state.movieTitle === '') {
-      alert(`please enter the movie you want to search`);
-    } else {
-      axios.all([
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${CONFIG.movie_db_api_key}&query=${this.state.movieTitle}`),
-        axios.get(`/movies`)
-      ])
-      .then(axios.spread((res1, res2) => {
-        this.updateStates(res1.data, res2.data);
-      }))
-      .catch((err) => {
-        console.log(err)
-      });
+    if(event.keyCode === 13) {
+      if(this.state.movieTitle === '') {
+        alert(`please enter the movie you want to search`);
+      } else {
+        axios.all([
+          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${CONFIG.movie_db_api_key}&query=${this.state.movieTitle}`),
+          axios.get(`/movies`)
+        ])
+        .then(axios.spread((res1, res2) => {
+          this.updateStates(res1.data, res2.data);
+        }))
+        .catch((err) => {
+          console.log(err)
+        });
+      }
     }
   }
 
@@ -43,24 +49,28 @@ class App extends Component {
   }
 
   render() {
+    const numberWithCommas = this.state.totalResult.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ", ");
+
     return (
-      <div>
-        <form>
-          <label><b>Find Movies</b></label>
-            <input 
-              type="text" 
+      <Paper style={{padding: '2% 15%'}}>
+        <Grid style={{minHeight: '80vh'}}>
+        <h2>Your Personal IMDb</h2>
+            <TextField
+              type="text"
+              fullWidth
+              label="Enter The Movie Title and Press Enter"
+              placeholder="Find Movie"  
+              margin="normal"
               value={this.state.movieTitle}
               onChange={(event) => (this.setState({movieTitle: event.target.value}))}
-              />
-          <button onClick={this.handleSearchSubmit}>Submit</button>
-        </form>
-        <div>
+              onKeyUp={this.handleSearchSubmit}
+          />
           <MovieList apiMovieList={this.state.apiMovieList} ownMovieList={this.state.ownMovieList}/>
+        </Grid>
+        <div className='footer'>
+          Total Number of Search Results: <b>{numberWithCommas}</b>
         </div>
-        <div>
-          Total Number of Search Result: {this.state.totalResult}
-        </div>
-      </div>
+      </Paper>
     )
   }
 }
