@@ -7,7 +7,36 @@ h2 {
   color:#002984;
 }
 
-.footer {
-  color: #E65100;
-  font-size: 0.7rem;
+h3 { 
+  color:#3f51b5;
 }
+
+button {
+  cursor: pointer;
+}
+
+.listEntryView {
+  margin: 5px;
+  padding: 10px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: rgb(255, 248, 235)
+}
+
+.listEntryView:hover { 
+    background-color: rgb(253, 240, 216);
+}
+
+.footer {
+  color: #757de8;
+  font-size: 0.8rem;
+}
+.listEntryItem {
+  margin: 0 0 5px 0;
+}
+.overviewDetails {
+  font-size: 0.8em;
+  padding: 3px;
+}
+
+

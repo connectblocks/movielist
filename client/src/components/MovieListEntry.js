@@ -31,15 +31,16 @@ class MovieListEntry extends Component {
   render () {
     const inStyle = this.state.own === 'Yes' ? 'Green' : 'Grey';
     return (
-      <div style={{borderStyle: 'solid', margin: '5px', padding: '5px'}}>
+      <div className='listEntryView'>
         <h3>{this.props.item.title}</h3>
-        <div><b>Release Date: </b>{this.props.item.release_date}</div>
-        <div>
+        <div className='listEntryItem'><b>Release Date: </b>{this.props.item.release_date}</div>
+        <div className='listEntryItem'>
           <span><b>Own the movie: </b></span>    
-          <button onClick={this.handleOwnClick} value={this.state.own} style={{color: 'White', backgroundColor: inStyle, borderRadius: '5px'}}>{this.state.own}</button>
+          <button onClick={this.handleOwnClick} value={this.state.own} style={{color: 'White', backgroundColor: inStyle, borderRadius: '5px', borderStyle: 'none'}}>{this.state.own}</button>
         </div>
-        <div><b>Overview</b></div>
-        <div>{this.props.item.overview}</div>
+        <div className='listEntryItem'><b>Overview</b>
+          <div className='overviewDetails'>{this.props.item.overview}</div>
+        </div>
       </div>
     )
   }

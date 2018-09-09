@@ -53,8 +53,8 @@ class App extends Component {
 
     return (
       <Paper style={{padding: '2% 15%'}}>
-        <Grid style={{minHeight: '80vh'}}>
-        <h2>Your Personal IMDb</h2>
+        <div style={{minHeight: '80vh'}}>
+          <h2>Your Personal IMDb</h2>
             <TextField
               type="text"
               fullWidth
@@ -66,7 +66,7 @@ class App extends Component {
               onKeyUp={this.handleSearchSubmit}
           />
           <MovieList apiMovieList={this.state.apiMovieList} ownMovieList={this.state.ownMovieList}/>
-        </Grid>
+        </div>
         <div className='footer'>
           Total Number of Search Results: <b>{numberWithCommas}</b>
         </div>
