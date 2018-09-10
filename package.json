@@ -4,7 +4,7 @@
   "description": "full-stack movie list application",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "webpack -p && node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-start": "nodemon --inspect server/index.js",
     "dev-react": "webpack -d --watch"

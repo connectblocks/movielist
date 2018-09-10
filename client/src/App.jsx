@@ -3,9 +3,7 @@ import './App.css';
 import axios from 'axios';
 import CONFIG from '../../config.json';
 import MovieList from './components/MovieList'
-import { Paper, Grid, TableFooter, TextField } from '@material-ui/core/';
-
-
+import { Paper, TextField } from '@material-ui/core/';
 
 class App extends Component {
   constructor() {
@@ -64,7 +62,7 @@ class App extends Component {
               value={this.state.movieTitle}
               onChange={(event) => (this.setState({movieTitle: event.target.value}))}
               onKeyUp={this.handleSearchSubmit}
-          />
+            />
           <MovieList apiMovieList={this.state.apiMovieList} ownMovieList={this.state.ownMovieList}/>
         </div>
         <div className='footer'>
