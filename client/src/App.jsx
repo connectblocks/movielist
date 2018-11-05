@@ -14,10 +14,9 @@ class App extends Component {
       apiMovieList: [],
       ownMovieList: []
     }
-    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
   }
 
-  handleSearchSubmit(event) {
+  handleSearchSubmit = event => {
     event.preventDefault();
     if(event.keyCode === 13) {
       if(this.state.movieTitle === '') {

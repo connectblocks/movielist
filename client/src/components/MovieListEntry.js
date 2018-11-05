@@ -7,21 +7,18 @@ class MovieListEntry extends Component {
     this.state = {
       own: props.own
     }   
-    this.handleOwnClick = this.handleOwnClick.bind(this);
   }
 
-  handleOwnClick(event) {
+  handleOwnClick = event => {
     if(event.target.value === 'No') {
       axios.post('/movies', { movieId: this.props.item.id })
         .then((res) => {
-          console.log(res.data) 
           this.setState({ own: 'Yes'})   
         })
         .catch(err => console.log(err))
     } else {
       axios.delete('/movies', {data: { movieId: this.props.item.id }})
         .then((res) => {
-          console.log(res.data) 
           this.setState({ own: 'No'})   
         })
         .catch(err => console.log(err))
